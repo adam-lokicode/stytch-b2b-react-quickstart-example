@@ -8,7 +8,7 @@ import SSO from "./components/SSO";
 import SCIM from "./components/SCIM";
 import { Dashboard } from "./components/Dashboard";
 import { SideNav } from "./components/SideNav";
-import { LoginOrSignup } from "./components/LoginOrSignup";
+import LoginOrSignup from "./components/LoginOrSignup";
 import { Authenticate } from "./components/Authenticate";
 import { ProtectedRoutes } from "./components/ProtectedRoutes";
 

@@ -1,0 +1,161 @@
+/* LoginOrSignup.css */
+
+/* —— 1) Zero‐out default page margin so bg covers edge-to-edge —— */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* —— 2) Full‐screen background container —— */
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background: url("/datadog-bg.png") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* —— 3) Wrapper that holds two columns (left logo + right cards) —— */
+.login-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;  /* don’t stretch wider than ~1000px on large screens */
+  height: 80vh;       /* give it some vertical breathing room */
+}
+
+/* —— 4) LEFT column: dog logo centered vertically/horizontally —— */
+/*     NOTE: changed from flex:1 (50%) → flex:0 0 40% (40%) —— */
+.login-left {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+/* —— 5) Logo image sizing in left column —— */
+.logo-img {
+  width: 200px;       /* adjust as you like, ~200px wide */
+  max-width: 80%;
+  margin-bottom: 1rem;
+}
+
+/* —— 6) “DATADOG” text under the logo —— */
+.login-left h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.05rem;
+  margin: 0;
+}
+
+/* —— 7) RIGHT column: contains both static card (bg) + Stytch widget (fg) —— */
+/*     Changed from flex:1 (50%) → flex:0 0 60% (60%) —— */
+.login-right {
+  flex: 0 0 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* so we can absolutely position the Stytch widget inside */
+}
+
+/* —— 8) STATIC CARD (behind) —— */
+.login-static-card {
+  width: 100%;
+  max-width: 450px;              /* how wide the “behind” card can get */
+  background-color: rgba(255, 255, 255, 0.9);  /* semi‐opaque white */
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 0;                    /* sits behind the Stytch widget */
+}
+
+.login-static-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: #1f2937;               /* dark gray */
+}
+
+.login-static-card p {
+  margin: 0 0 1rem;
+  color: #4b5563;               /* medium gray */
+  font-size: 0.9rem;
+}
+
+.login-static-card a {
+  color: #2563eb;               /* blue link */
+  text-decoration: underline;
+}
+
+/* —— 9) STYTCH WIDGET WRAPPER (foreground) —— */
+/*     We will position this box so it sits on top of the static card. —— */
+.login-stytch-wrapper {
+  position: absolute;
+  top: 1rem;                    /* move it down 1rem from top of login-right */
+  right: -1rem;                 /* shift it slightly right to “float” over the static card */
+  width: 100%;
+  max-width: 400px;             /* make the actual Stytch widget a bit narrower */
+  z-index: 1;                   /* bring it above the static card */
+  background: transparent;      /* Stytch’s own white container will show */
+}
+
+/* —— 10) Footer inside static card —— */
+.login-footer {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: #ffffff !important;              /* lighter gray */
+  text-align: center;
+  background: transparent;
+}
+
+.login-footer a {
+  color: #2563eb;               /* blue link */
+  text-decoration: underline;
+}
+
+/* Make the “Log in to Datadog” heading pure white */
+.login-card h2 {
+  color: #ffffff !important;
+}
+
+/* Style only the “Try for free →” link */
+.login-card .try-link {
+  /* Make it look like Datadog’s blue button */
+  color: #ffffff;
+  background-color: #0072ff; /* Datadog brand blue */
+  padding: 0.3rem 0.6rem;
+  margin-left: 0.5rem; /* little gap from “New user?” text */
+  text-decoration: none;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Make the “New user?” portion white */
+.login-card p {
+  color: #ffffff;
+  margin-bottom: 1rem; /* some space before the Stytch form */
+  font-size: 0.9rem;
+  /* Pull the link a bit closer to the text */
+}
+
+/* 1) Make sure the card’s heading and paragraph are white */
+.login-card h2,
+.login-card .new-user-line {
+  color: white;
+}
+
+/* 2) Style the “Try for free” link */
+.login-card .new-user-line a {
+  color: white;             /* a light‐blue accent; choose whatever pops on a dark bg */
+  text-decoration: underline; /* keep the underline if you like */
+  font-weight: 500;           /* optional: slightly bolder so it stands out */
+}
+
+/* 3) Add a right‐arrow “→” after the link text */
+.login-card .new-user-line a::after {
+  content: " \2192";           /* unicode arrow, with a leading space */
+  font-size: 1rem;             /* same size as link text */
+  vertical-align: baseline;    /* aligns arrow neatly with the text */
+}

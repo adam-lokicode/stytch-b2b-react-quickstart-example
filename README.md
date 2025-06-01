@@ -42,6 +42,7 @@ npm run dev
 The application will be available at `http://localhost:3000`.
 
 # Flows to Explore
+
 - [ ] Authenticate and create a new Organization
 - [ ] Invite an alias of your email to the Organization in the "Members" tab
 - [ ] Enable Just-in-Time (JIT) Provisioning for your work email domain in the "Settings" tab, and set an Automatic Role Assignment to have all users from that domain automatically be assigned the Admin Role
@@ -56,3 +57,22 @@ This example app showcases a small portion of what you can accomplish with Stytc
 # :question: Need support?
 
 Come join our [Slack community](https://stytch.com/docs/resources/support/overview) to speak directly with a Stytch auth expert!
+
+Thanks for the screenshots — this confirms what’s happening:
+
+✅ Your Tailwind layout is working
+❌ But the styles inside the StytchB2B component (like spacing, font colors, margins) are not being customized by your app’s CSS.
+
+⸻
+
+✅ Why this happens
+
+StytchB2B renders a hosted iframe or embedded Shadow DOM-like component. This means:
+• Your Tailwind styles won’t cascade inside
+• You need to use the styles prop from discoveryStyles to control appearance
+
+🚧 Final Warning in Console:
+
+“This application is using a Stytch client for Consumer projects, but the public token is for a Stytch B2B project…”
+
+This means your public token belongs to a B2B project, but you’re using consumer (B2C) login components like StytchLogin.

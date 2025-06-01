@@ -1,7 +1,7 @@
 import { useStytchMemberSession } from "@stytch/react/b2b";
 import { Navigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { LoginOrSignup } from "./LoginOrSignup";
+import LoginOrSignup from "./LoginOrSignup";
 
 export const Authenticate = (): JSX.Element => {
   const { session } = useStytchMemberSession();
